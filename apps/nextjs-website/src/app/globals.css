@@ -1,4 +1,11 @@
 @import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "luxury";
+  default: true;
+  --color-base-content: white;
+}
 
 :root {
   --font-geist-sans: "Geist", sans-serif;
@@ -14,4 +21,3 @@ body {
 body {
   font-family: var(--font-geist-sans), var(--font-geist-mono);
 }
-
