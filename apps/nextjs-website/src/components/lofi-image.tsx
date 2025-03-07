@@ -1,6 +1,6 @@
 "use client";
 
-import { ACTIONS, useBackground } from "@/providers/BackgroundProvider";
+import { ACTIONS, useBackground } from "@/providers/background-provider";
 
 const activeClassNames = "border-2 border-primary";
 

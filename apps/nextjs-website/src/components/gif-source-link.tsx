@@ -1,5 +1,5 @@
 "use client";
-import { useBackground } from "@/providers/BackgroundProvider";
+import { useBackground } from "@/providers/background-provider";
 
 export default function GifSourceLink() {
   const { backgroundUrl } = useBackground();
