@@ -85,6 +85,7 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
+  transpilePackages: ["@repo/ui"],
 };
 
 export default nextConfig;

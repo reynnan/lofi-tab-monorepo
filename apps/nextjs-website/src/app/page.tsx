@@ -1,7 +1,8 @@
-import Clock from "@/components/clock";
+
 import GifSourceLink from "@/components/gif-source-link";
 import Header from "@/components/header";
 import { BackgroundProvider } from "@/providers/background-provider";
+import Clock from "@repo/ui/clock";
 
 export default function Home() {
   return (
