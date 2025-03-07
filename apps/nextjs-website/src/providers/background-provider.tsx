@@ -16,11 +16,10 @@ type BackgroundContextType = {
   dispatch: React.ActionDispatch<[action: Action]>;
 };
 
-const BackgroundContext = createContext<BackgroundContextType | undefined>(
-  undefined
-);
+const BackgroundContext = createContext<BackgroundContextType | undefined>(undefined);
 
 export function BackgroundProvider({ children }: PropsWithChildren) {
+  const backgroundRef = React.useRef<HTMLDivElement | null>(null);
   const [backgroundUrl, dispatch] = useReducer(reducer, "");
   const [renderWithAnimation, setRenderWithAnimation] = useState(false);
 
@@ -29,9 +28,8 @@ export function BackgroundProvider({ children }: PropsWithChildren) {
   }, []);
 
   useEffect(() => {
-    const backgroundDiv = document.getElementById(
-      "background"
-    ) as HTMLDivElement;
+    if(backgroundRef.current === null) return;
+    const backgroundDiv = backgroundRef.current;
     backgroundDiv.style.backgroundImage = `url(${backgroundUrl})`;
     backgroundDiv.style.backgroundRepeat = "no-repeat";
     backgroundDiv.style.backgroundSize = "cover";
@@ -53,7 +51,8 @@ export function BackgroundProvider({ children }: PropsWithChildren) {
   return (
     <BackgroundContext.Provider value={value}>
       <div
-        className={`!contents w-full h-full transition-all duration-1000 transform ${
+        ref={backgroundRef}
+        className={`w-full h-full transition-all duration-1000 transform ${
           renderWithAnimation ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -66,9 +65,7 @@ export function BackgroundProvider({ children }: PropsWithChildren) {
 export function useBackground() {
   const context = useContext(BackgroundContext);
   if (!context) {
-    throw new Error(
-      "useBodyBackground must be used inside a BodyBackgroundProvider"
-    );
+    throw new Error("useBodyBackground must be used inside a BackgroundContext");
   }
   return context;
 }
@@ -77,8 +74,7 @@ const LOCAL_STORAGE_KEY = "LOFI_NEW_TAB";
 
 export const ACTIONS = {
   INIT_STATE: () => {
-    const url =
-      window.localStorage.getItem(LOCAL_STORAGE_KEY) || getRandomBackground();
+    const url = window.localStorage.getItem(LOCAL_STORAGE_KEY) || getRandomBackground();
     return {
       type: "INIT_STATE",
       payload: { url },
