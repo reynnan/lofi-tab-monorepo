@@ -6,10 +6,7 @@ import { BackgroundProvider } from "@/providers/background-provider";
 export default function Home() {
   return (
     <BackgroundProvider>
-      <div
-        id="background"
-        className="flex flex-col w-full h-full overflow-hidden"
-      >
+      <div id="background" className="flex flex-col w-full h-full overflow-hidden">
         <Header />
         <main className="flex-1 flex flex-col justify-center items-center p-1 z-10">
           <Clock />
