@@ -1,7 +1,7 @@
 "use client";
 
-import LofiImage from "@/components/lofi-image";
-import { LOFI_GIFS } from "@/utils/constants";
+import LofiImage from "@repo/ui/components/lofi-image";
+import { LOFI_GIFS } from "@repo/ui/utils/constants";
 import { GalleryHorizontal } from "lucide-react";
 import { useState } from "react";
 

@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@repo/ui/*": ["./src/*"] // This is used to make import INSIDE this package easier
     }
   },
   "include": ["src"],

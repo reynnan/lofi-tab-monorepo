@@ -1,6 +1,6 @@
 "use client";
 
-import { getRandomBackground } from "@/utils/get-random-background";
+import { getRandomBackground } from "@repo/ui/utils/get-random-background";
 import React, {
   createContext,
   type PropsWithChildren,

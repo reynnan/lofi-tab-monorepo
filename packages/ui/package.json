@@ -6,6 +6,7 @@
     "./global.css": "./src/global.css",
     "./components/*": "./src/components/*.tsx",
     "./providers/*": "./src/providers/*.tsx",
+    "./utils/*": "./src/utils/*",
     "./postcss.config": "./postcss.config.mjs"
   },
   "scripts": {
