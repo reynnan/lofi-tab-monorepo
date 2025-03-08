@@ -69,7 +69,7 @@ export default function Weather({ classNames = "" }: Props) {
       data-tip="Click to change between Celsius and Fahrenheit"
       onClick={handleToggleTemperature}
     >
-      <h2 className="text-3xl font-bold select-none">
+      <h2 className="text-4xl font-bold select-none">
         {Math.round(state.temp)}º {state.currentType}
       </h2>
       <h3 className="text-sm font-bold">

@@ -34,7 +34,7 @@ export default function Clock() {
       data-tip="Click to alternate between 12-hour and 24-hour format"
       onClick={handleToggleFormat}
     >
-      <h1 className="text-8xl [text-shadow:_0_1px_0_rgb(0_0_0_/_100%)]">
+      <h1 className="text-9xl [text-shadow:_0_1px_0_rgb(0_0_0_/_100%)]">
         {formatTime(time, use24HourFormat)}
       </h1>
     </div>

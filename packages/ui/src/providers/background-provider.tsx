@@ -52,7 +52,7 @@ export function BackgroundProvider({ children }: PropsWithChildren) {
     <BackgroundContext.Provider value={value}>
       <div
         ref={backgroundRef}
-        className={`w-full h-full transition-all duration-1000 transform ${
+        className={`w-full h-full transition-opacity duration-300 transform ${
           renderWithAnimation ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -65,7 +65,7 @@ export function BackgroundProvider({ children }: PropsWithChildren) {
 export function useBackground() {
   const context = useContext(BackgroundContext);
   if (!context) {
-    throw new Error("useBodyBackground must be used inside a BackgroundContext");
+    throw new Error("useBackground must be used inside a BackgroundContext");
   }
   return context;
 }
