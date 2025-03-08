@@ -1,9 +1,9 @@
 "use client";
-import { getLatLong } from "@/utils/get-lat-long";
 import lscache from "lscache";
 import { useEffect, useLayoutEffect, useState } from "react";
 
 type Props = {
+  fetchUrl?: string;
   classNames?: string;
 };
 
@@ -14,7 +14,7 @@ type State = {
   currentType: "C" | "F";
 };
 
-export default function Weather({ classNames = "" }: Props) {
+export default function Weather({ classNames = "", fetchUrl = "/api/weather" }: Props) {
   const [isLoading, setIsLoading] = useState(true);
   const [state, setState] = useState<State>(() => getInitialState());
 
@@ -27,13 +27,13 @@ export default function Weather({ classNames = "" }: Props) {
   useEffect(() => {
     if (lscache.get(WEATHER_KEY)) return;
 
-    fetchWeather().then((weather) => {
+    fetchWeather(fetchUrl).then((weather) => {
       if (weather) {
         setState(weather);
         setIsLoading(false);
       }
     });
-  }, []);
+  }, [fetchUrl]);
 
   const handleToggleTemperature = () => {
     const newType = state.currentType === "C" ? "F" : "C";
@@ -69,7 +69,7 @@ export default function Weather({ classNames = "" }: Props) {
       data-tip="Click to change between Celsius and Fahrenheit"
       onClick={handleToggleTemperature}
     >
-      <h2 className="text-3xl font-bold select-none">
+      <h2 className="text-4xl font-bold select-none">
         {Math.round(state.temp)}º {state.currentType}
       </h2>
       <h3 className="text-sm font-bold">
@@ -103,15 +103,9 @@ const getInitialState = (): State => {
   return weatherCache;
 };
 
-async function fetchWeather() {
+async function fetchWeather(fetchUrl: string) {
   try {
-    const { lat, long } = await getLatLong();
-    const searchParams = new URLSearchParams({
-      lat: lat.toString(),
-      long: long.toString(),
-    });
-
-    const response = await fetch("/api/weather?" + searchParams, {
+    const response = await fetch(fetchUrl, {
       method: "GET",
     });
 

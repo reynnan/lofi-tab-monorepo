@@ -1,4 +1,4 @@
-import { LOFI_GIFS } from "@/constants";
+import { LOFI_GIFS } from "@repo/ui/utils/constants";
 
 export const getRandomBackground = () => {
   const length = LOFI_GIFS.length;

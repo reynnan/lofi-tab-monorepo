@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { LOFI_GIFS } from "@/constants";
+import LofiImage from "@repo/ui/components/lofi-image";
+import { LOFI_GIFS } from "@repo/ui/utils/constants";
 import { GalleryHorizontal } from "lucide-react";
-import LofiImage from "./lofi-image";
+import { useState } from "react";
 
 export default function BackgroundSelectDropdown() {
   const [isOpen, setIsOpen] = useState(false);

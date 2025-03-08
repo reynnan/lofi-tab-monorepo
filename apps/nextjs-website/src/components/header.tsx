@@ -1,17 +1,13 @@
-import dynamic from "next/dynamic";
-import ShuffleBackgroundButton from "./shuffle-background-button";
-
-const DynamicWeather = dynamic(() => import("./weather"));
-const DynamicBackgroundSelectDropdown = dynamic(
-  () => import("./background-select-dropdown")
-);
+import BackgroundSelectDropdown from "@repo/ui/components/background-select-dropdown";
+import ShuffleBackgroundButton from "@repo/ui/components/shuffle-background-button";
+import Weather from "@repo/ui/components/weather";
 
 export default function Header() {
   return (
-    <header className="flex p-1 h-12">
-      <DynamicBackgroundSelectDropdown />
+    <header className="flex p-1">
+      <BackgroundSelectDropdown />
       <ShuffleBackgroundButton />
-      <DynamicWeather classNames="ml-auto" />
+      <Weather classNames="ml-auto" />
     </header>
   );
 }

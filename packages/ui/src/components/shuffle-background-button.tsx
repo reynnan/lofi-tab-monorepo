@@ -1,5 +1,5 @@
 "use client";
-import { ACTIONS, useBackground } from "@/providers/background-provider";
+import { ACTIONS, useBackground } from "@repo/ui/providers/background-provider";
 import { Shuffle } from "lucide-react";
 
 export default function ShuffleBackgroundButton() {

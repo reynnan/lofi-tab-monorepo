@@ -1,24 +1,12 @@
+import { geolocation } from "@vercel/functions";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
-  const lat: string | null = searchParams.get("lat");
-  const long: string | null = searchParams.get("long");
-
-  if (!lat || !long) {
-    return NextResponse.json(
-      {
-        error:
-          "Missing required query parameters: 'lat' and 'long' are required.",
-      },
-      { status: 400 }
-    );
-  }
+  const { city, country } = geolocation(request);
 
   try {
     const queryParams = new URLSearchParams({
-      lat,
-      lon: long,
+      q: `${city},${country}`,
       appid: process.env.OPEN_WEATHER_KEY!,
       units: "metric",
     });
@@ -32,10 +20,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(data, { status: 200 });
   } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to fetch weather", info: error },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to fetch weather", info: error }, { status: 500 });
   }
 }
 
