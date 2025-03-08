@@ -8,7 +8,7 @@ const DynamicBackgroundSelectDropdown = dynamic(
 
 export default function Header() {
   return (
-    <header className="flex p-1 h-12">
+    <header className="flex p-1">
       <DynamicBackgroundSelectDropdown />
       <ShuffleBackgroundButton />
       <DynamicWeather classNames="ml-auto" />
