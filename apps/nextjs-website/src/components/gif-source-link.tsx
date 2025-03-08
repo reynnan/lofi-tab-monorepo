@@ -1,5 +1,5 @@
 "use client";
-import { useBackground } from "@/providers/background-provider";
+import { useBackground } from "@repo/ui/providers/background-provider";
 
 export default function GifSourceLink() {
   const { backgroundUrl } = useBackground();
