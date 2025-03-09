@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     return NextResponse.json(
       { error: "Failed to fetch weather", info: error },
-      { status: 500, headers: ALLOW_CORS }
+      { status: 500, headers: ALLOW_CORS },
     );
   }
 }

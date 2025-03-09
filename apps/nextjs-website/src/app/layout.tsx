@@ -26,7 +26,9 @@ export default function RootLayout({
   return (
     <PostHogProvider>
       <html lang="en" data-theme="luxury">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
           {children}
         </body>
       </html>

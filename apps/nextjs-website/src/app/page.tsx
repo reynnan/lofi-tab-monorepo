@@ -1,4 +1,3 @@
-
 import Header from "@/components/header";
 import Clock from "@repo/ui/components/clock";
 import GifSourceLink from "@repo/ui/components/gif-source-link";

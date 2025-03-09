@@ -16,7 +16,9 @@ type BackgroundContextType = {
   dispatch: React.ActionDispatch<[action: Action]>;
 };
 
-const BackgroundContext = createContext<BackgroundContextType | undefined>(undefined);
+const BackgroundContext = createContext<BackgroundContextType | undefined>(
+  undefined,
+);
 
 export function BackgroundProvider({ children }: PropsWithChildren) {
   const backgroundRef = React.useRef<HTMLDivElement | null>(null);
@@ -28,7 +30,7 @@ export function BackgroundProvider({ children }: PropsWithChildren) {
   }, []);
 
   useEffect(() => {
-    if(backgroundRef.current === null) return;
+    if (backgroundRef.current === null) return;
     const backgroundDiv = backgroundRef.current;
     backgroundDiv.style.backgroundImage = `url(${backgroundUrl})`;
     backgroundDiv.style.backgroundRepeat = "no-repeat";
@@ -74,7 +76,8 @@ const LOCAL_STORAGE_KEY = "LOFI_NEW_TAB";
 
 export const ACTIONS = {
   INIT_STATE: () => {
-    const url = window.localStorage.getItem(LOCAL_STORAGE_KEY) || getRandomBackground();
+    const url =
+      window.localStorage.getItem(LOCAL_STORAGE_KEY) || getRandomBackground();
     return {
       type: "INIT_STATE",
       payload: { url },

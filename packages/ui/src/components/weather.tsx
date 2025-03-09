@@ -14,7 +14,10 @@ type State = {
   currentType: "C" | "F";
 };
 
-export default function Weather({ classNames = "", fetchUrl = "/api/weather" }: Props) {
+export default function Weather({
+  classNames = "",
+  fetchUrl = "/api/weather",
+}: Props) {
   const [isLoading, setIsLoading] = useState(true);
   const [state, setState] = useState<State>(() => getInitialState());
 
