@@ -16,7 +16,7 @@ export default function BackgroundSelectDropdown() {
           role="button"
           className="btn btn-ghost"
           // Only render list when hovering the mouse
-          // to avoid rendering all gifs at once and slowing down the page
+          // to avoid rendering all gifs at once and slowing down the page
           onMouseOver={() => setIsOpen(true)}
         >
           <GalleryHorizontal className="w-5 h-5" />
