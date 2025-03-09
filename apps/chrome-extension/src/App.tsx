@@ -8,8 +8,8 @@ import { BackgroundProvider } from "@repo/ui/providers/background-provider";
 function App() {
   return (
     <BackgroundProvider>
-      <div className="flex flex-col w-full h-full overflow-hidden p-3">
-        <header className="flex p-1">
+      <div className="flex flex-col w-full h-full overflow-hidden p-1">
+        <header className="flex items-center p-1">
           <BackgroundSelectDropdown />
           <ShuffleBackgroundButton />
           <Weather classNames="ml-auto" fetchUrl={`${import.meta.env.VITE_API_ROUTE}/weather`} />

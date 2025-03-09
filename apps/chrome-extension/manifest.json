@@ -1,0 +1,17 @@
+{
+  "name": "Lofi Tab",
+  "description": "New tab to relax/study to",
+  "version": "3.0",
+  "manifest_version": 3,
+  "permissions": [],
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "host_permissions": ["https://lofitab.com/api/*", "http://localhost:5173/*"],
+  "icons": {
+    "16": "public/lofitab16.png",
+    "32": "public/lofitab32.png",
+    "48": "public/lofitab48.png",
+    "128": "public/lofitab128.png"
+  }
+}
