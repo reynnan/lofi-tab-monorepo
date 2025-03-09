@@ -50,4 +50,10 @@ export const LOFI_GIFS = [
   "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3I1ZGJtbWU5cXJjbmxod2U5eGk4dDJrZmp3bzBtM21pdWR0NDJ0ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/C8K8hfep2yis/giphy.gif",
   "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWVmMDk0YTE3ZmFlNjg1YzZkYjM3NjQ4N2RiYjU0NjdlZWNhNGYxZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/TNeilKIVOAKmk/giphy.gif",
   "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWc2Z2N0bDgyNjlvM3VjZ2xqYmt5ajcxMHA3aXJ0M3l2dmd4c2M0aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xwmPkM9JrbLSU/giphy.gif",
+  "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWk0MWhzemFzN3ltdmt6ODNldzkzN2ZvamhodGd6aWQwanM5NGNhbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RMwgs5kZqkRyhF24KK/giphy.gif",
+  "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDdybzlvM3ZwZW5hemhvdWJiMXRpaWpoOWgzZHA4cHpndnFncTU5MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IuVFGSQZTd6TK/giphy.gif",
+  "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWprYzZ6Y2U0cjJ1Z245ejVjejU1ejVyYTU5aHBoY3FjNHlocWFsMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Uz4cDaGXPxeuY/giphy.gif",
+  "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjRlNGN1OWY5MTJiOXRnbjRvMzM1OXoycTY5ZXMxazg3M200aDBmciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fpTwAdKL3ZCBa/giphy.gif",
+  "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMm5vMDFuZW5hejdneTE0OWJ4NjhndGl2azkzNmVncWtzdHQ2ZWluaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BRN2Xi0MqnjjO/giphy.gif",
+  "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2wzOHM5b2YwamRuZW83d2cxM2M3cmQ3YWdzajVjZzBldmNvbHduZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/J4FsxFgZgN2HS/giphy.gif",
 ] as readonly string[];
