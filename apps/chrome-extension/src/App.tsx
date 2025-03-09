@@ -12,7 +12,7 @@ function App() {
         <header className="flex p-1">
           <BackgroundSelectDropdown />
           <ShuffleBackgroundButton />
-          <Weather classNames="ml-auto" />
+          <Weather classNames="ml-auto" fetchUrl={`${import.meta.env.VITE_API_ROUTE}/weather`} />
         </header>
         <main className="flex-1 flex flex-col justify-center items-center">
           <Clock />
