@@ -22,11 +22,15 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
+{
+  "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@repo/ui/*": ["../../packages/ui/src/*"] // This is referencing that everything on the workspace ui comes from there
+      "@repo/ui/*": ["../../packages/ui/src/*"]
     }
+  }
+}
   },
   "include": ["src"]
 }
