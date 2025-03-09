@@ -4,7 +4,7 @@ import Weather from "@repo/ui/components/weather";
 
 export default function Header() {
   return (
-    <header className="flex p-1">
+    <header className="flex items-center p-1">
       <BackgroundSelectDropdown />
       <ShuffleBackgroundButton />
       <Weather classNames="ml-auto" />

@@ -3,9 +3,9 @@
  * @returns Promise with lat and long coordinates
  * @throws Error if geolocation is not supported or permission is denied
  */
-export const getLatLong = async (): Promise<{lat: number, long: number}> => {
+export const getLatLong = async (): Promise<{ lat: number; long: number }> => {
   if (!navigator || !navigator.geolocation) {
-    throw new Error('Geolocation is not supported by this browser');
+    throw new Error("Geolocation is not supported by this browser");
   }
 
   const pos: GeolocationPosition = await new Promise((resolve, reject) => {
@@ -13,12 +13,12 @@ export const getLatLong = async (): Promise<{lat: number, long: number}> => {
       resolve,
       (error) => {
         if (error.code === 1) {
-          reject(new Error('Permission denied for geolocation'));
+          reject(new Error("Permission denied for geolocation"));
         } else {
           reject(new Error(`Failed to get location: ${error.message}`));
         }
       },
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 },
     );
   });
 
