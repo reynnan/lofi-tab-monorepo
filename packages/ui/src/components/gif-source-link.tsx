@@ -1,15 +1,13 @@
 "use client";
-import { useBackground } from "@repo/ui/providers/background-provider";
+import { useSettings } from "@repo/ui/providers/settings-provider";
 
 export default function GifSourceLink() {
-  const { backgroundUrl } = useBackground();
+  const {
+    settings: { backgroundUrl },
+  } = useSettings();
+
   return (
-    <a
-      href={backgroundUrl}
-      rel="noreferrer"
-      target="_blank"
-      className="font-bold"
-    >
+    <a href={backgroundUrl} rel="noreferrer" target="_blank" className="font-bold">
       Gif source
     </a>
   );
