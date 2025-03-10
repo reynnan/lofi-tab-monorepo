@@ -7,7 +7,12 @@ export default function GifSourceLink() {
   } = useSettings();
 
   return (
-    <a href={backgroundUrl} rel="noreferrer" target="_blank" className="font-bold">
+    <a
+      href={backgroundUrl}
+      rel="noreferrer"
+      target="_blank"
+      className="font-bold"
+    >
       Gif source
     </a>
   );

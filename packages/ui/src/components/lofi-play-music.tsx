@@ -15,44 +15,41 @@ export function LofiPlayMusicButton() {
       className="tooltip tooltip-right"
       data-tip={`${isPlayingLofi ? "Hide music" : "Show music"}`}
     >
-      <button onClick={() => dispatch(ACTIONS.TOGGLE_LOFI_MUSIC())} className="btn btn-ghost">
-        {isPlayingLofi ? <HeadphoneOff className="h-5 w-5" /> : <Headphones className="h-5 w-5" />}
+      <button
+        onClick={() => dispatch(ACTIONS.TOGGLE_LOFI_MUSIC())}
+        className="btn btn-ghost"
+      >
+        {isPlayingLofi ? (
+          <HeadphoneOff className="h-5 w-5" />
+        ) : (
+          <Headphones className="h-5 w-5" />
+        )}
       </button>
     </div>
   );
 }
 
-export function LofiYoutubeIframe() {
+export function LofiYoutubeIframe({ show }: { show: boolean }) {
   const [loading, setLoading] = useState(true);
-  const {
-    settings: { isPlayingLofi },
-  } = useSettings();
 
   return (
     <>
-      {isPlayingLofi && (
+      {show && (
         <section className="flex flex-col items-center">
+          <iframe
+            className="w-3xs h-3xs md:w-xs md:h-xs"
+            src="https://www.youtube.com/embed/jfKfPfyJRdk?si=c-9CVdi3f9mV3LHb"
+            title="Lofi Beats"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            onLoad={() => setLoading(false)}
+          />
           {loading && (
             <div className="mb-4 flex flex-col items-center">
               <span className="loading loading-spinner loading-lg" />
               <span className="mt-2">Loading video...</span>
             </div>
           )}
-
-          <div
-            className={`transition-opacity duration-500 ${loading ? "opacity-0" : "opacity-100"}`}
-          >
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/jfKfPfyJRdk?si=c-9CVdi3f9mV3LHb"
-              title="Lofi Beats"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-              onLoad={() => setLoading(false)}
-            />
-          </div>
         </section>
       )}
     </>

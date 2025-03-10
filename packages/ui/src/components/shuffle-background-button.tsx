@@ -21,8 +21,13 @@ export default function ShuffleBackgroundButton() {
       className="tooltip tooltip-right"
       data-tip={`Shuffle ${isShuffleActive ? "is active" : "background"}`}
     >
-      <button onClick={() => dispatch(ACTIONS.SHUFFLE_BACKGROUND())} className="btn btn-ghost">
-        <Shuffle className={`h-5 w-5 ${isShuffleActive ? "text-yellow-400" : ""}`} />
+      <button
+        onClick={() => dispatch(ACTIONS.SHUFFLE_BACKGROUND())}
+        className="btn btn-ghost"
+      >
+        <Shuffle
+          className={`h-5 w-5 ${isShuffleActive ? "text-yellow-400" : ""}`}
+        />
       </button>
     </div>
   );

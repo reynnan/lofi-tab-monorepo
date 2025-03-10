@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 
 export default function Clock() {
   const [time, setTime] = useState(new Date());
-  // Default to 24-hour format. The server render and first client paint will match.
   const [use24HourFormat, setUse24HourFormat] = useState(true);
 
   useEffect(() => {

@@ -21,7 +21,9 @@ type SettingsContextType = {
   dispatch: React.ActionDispatch<[action: Action]>;
 };
 
-const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
+const SettingsContext = createContext<SettingsContextType | undefined>(
+  undefined,
+);
 
 export function SettingsProvider({ children }: PropsWithChildren) {
   const backgroundRef = React.useRef<HTMLDivElement | null>(null);
@@ -82,7 +84,8 @@ const LOCAL_STORAGE_KEY = "LOFI_NEW_TAB";
 
 export const ACTIONS = {
   INIT_STATE: () => {
-    const url = window.localStorage.getItem(LOCAL_STORAGE_KEY) || getRandomBackground();
+    const url =
+      window.localStorage.getItem(LOCAL_STORAGE_KEY) || getRandomBackground();
     return {
       type: "INIT_STATE",
       payload: { url },
