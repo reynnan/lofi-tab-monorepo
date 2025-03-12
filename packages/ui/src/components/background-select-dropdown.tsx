@@ -25,7 +25,7 @@ export default function BackgroundSelectDropdown() {
       {isOpen && (
         <div
           tabIndex={0}
-          className="dropdown-content z-40 w-96 h-80 md:w-[500px] md:h-96 shadow-md overflow-y-scroll bg-base-300"
+          className="dropdown-content z-40 w-70 h-50 md:w-[500px] md:h-96 shadow-md overflow-y-scroll bg-base-300"
         >
           <ul className="grid grid-cols-3 gap-2 p-1">
             {LOFI_GIFS.map((gif) => (
