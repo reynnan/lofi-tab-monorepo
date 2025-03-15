@@ -13,6 +13,7 @@ export async function GET(request: NextRequest) {
   try {
     const queryParams = new URLSearchParams({
       q: `${city},${country}`,
+      // eslint-disable-next-line turbo/no-undeclared-env-vars
       appid: process.env.OPEN_WEATHER_KEY!,
       units: "metric",
     });
@@ -28,7 +29,7 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     return NextResponse.json(
       { error: "Failed to fetch weather", info: error },
-      { status: 500, headers: ALLOW_CORS },
+      { status: 500, headers: ALLOW_CORS }
     );
   }
 }
