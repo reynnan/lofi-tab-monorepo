@@ -1,12 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-@plugin "daisyui/theme" {
-  name: "luxury";
-  default: true;
-  --color-base-content: white;
-}
-
 :root {
   --font-geist-sans: "Geist", sans-serif;
   --font-geist-mono: "Geist Mono", monospace;
