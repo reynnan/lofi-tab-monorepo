@@ -18,7 +18,7 @@ type Settings = {
 
 type SettingsContextType = {
   settings: Settings;
-  dispatch: React.ActionDispatch<[action: Action]>;
+  dispatch: React.Dispatch<Action>;
 };
 
 const SettingsContext = createContext<SettingsContextType | undefined>(
