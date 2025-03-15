@@ -10,7 +10,7 @@ export default function Home() {
       <div className="flex flex-col w-full h-full p-3">
         <Header />
         <Main />
-        <footer className="flex items-center justify-center p-1">
+        <footer className="flex items-end p-1">
           <GifSourceLink />
           <TodosDropdown className="ml-auto" />
         </footer>

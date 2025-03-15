@@ -21,7 +21,7 @@ function App() {
           />
         </header>
         <Main />
-        <footer className="flex p-1">
+        <footer className="flex items-end p-1">
           <GifSourceLink />
           <TodosDropdown className="ml-auto" />
         </footer>
