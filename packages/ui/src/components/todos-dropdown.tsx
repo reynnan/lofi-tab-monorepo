@@ -96,7 +96,11 @@ const TodosList = () => {
       }
     };
 
-    syncTodosOnStorage();
+    const debounce = setTimeout(() => {
+      syncTodosOnStorage();
+    }, 500);
+
+    return () => clearTimeout(debounce);
   }, [todos, loading]);
 
   const addNewTodo = (todo: Todo) => {
