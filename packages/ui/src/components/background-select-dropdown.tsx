@@ -12,7 +12,7 @@ export default function BackgroundSelectDropdown() {
     <details className="dropdown">
       <summary
         role="button"
-        className="btn btn-ghost tooltip tooltip-right z-2"
+        className="btn btn-ghost tooltip tooltip-right z-2 font-normal"
         data-tip="More backgrounds"
         // Only render list when hovering the mouse
         // to avoid rendering all gifs at once and slowing down the page

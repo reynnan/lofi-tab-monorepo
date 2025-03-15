@@ -23,7 +23,11 @@ export default function ShuffleBackgroundButton() {
   return (
     <div
       className="tooltip tooltip-right"
-      data-tip={`Shuffle ${isShuffleActive ? "is active" : "background"}`}
+      data-tip={
+        isShuffleActive
+          ? "Shuffle is on: New random background on each new tab or select one to disable shuffle"
+          : "Shuffle is off: Click to refresh your background automatically on each new tab"
+      }
     >
       <button
         onClick={() => dispatch(ACTIONS.SHUFFLE_BACKGROUND())}
