@@ -1,12 +1,28 @@
 "use client";
 import { ListChecks, Trash } from "lucide-react";
-import { useState, useEffect, FormEvent } from "react";
+import { useState, useEffect, FormEvent, useRef } from "react";
 
 export default function TodosDropdown({ className }: { className: string }) {
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownContentRef = useRef<HTMLDetailsElement | null>(null);
+
+  useEffect(() => {
+    const closeDropdownOnEscPress = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        dropdownContentRef.current?.removeAttribute("open");
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", closeDropdownOnEscPress);
+    return () => window.removeEventListener("keydown", closeDropdownOnEscPress);
+  }, []);
 
   return (
-    <details className={`dropdown dropdown-top dropdown-end ${className}`}>
+    <details
+      ref={dropdownContentRef}
+      className={`dropdown dropdown-top dropdown-end ${className}`}
+    >
       <summary
         role="button"
         className={`btn ${isOpen ? "" : "btn-outline"} mt-1`}
