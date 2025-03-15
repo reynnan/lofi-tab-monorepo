@@ -187,7 +187,9 @@ const TodosList = () => {
 
       <ul className="mt-2 flex flex-col gap-2">
         {filteredTodos.length === 0 && (
-          <span className="text-sm text-gray-500">No tasks to display</span>
+          <li>
+            <span className="text-sm text-gray-500">No tasks to display</span>
+          </li>
         )}
         {filteredTodos.map((todo) => (
           <li key={todo.id} className="flex items-center justify-between">
