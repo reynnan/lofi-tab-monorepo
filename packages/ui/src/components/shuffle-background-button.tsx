@@ -1,5 +1,9 @@
 "use client";
-import { ACTIONS, useSettings } from "@repo/ui/providers/settings-provider";
+import {
+  ACTIONS,
+  LOCAL_STORAGE_KEY,
+  useSettings,
+} from "@repo/ui/providers/settings-provider";
 import { Shuffle } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -12,7 +16,7 @@ export default function ShuffleBackgroundButton() {
   const [isShuffleActive, setIsShuffleActive] = useState(false);
 
   useEffect(() => {
-    const storedUrl = window.localStorage.getItem("LOFI_NEW_TAB");
+    const storedUrl = window.localStorage.getItem(LOCAL_STORAGE_KEY);
     setIsShuffleActive(!storedUrl || storedUrl !== backgroundUrl);
   }, [backgroundUrl]);
 

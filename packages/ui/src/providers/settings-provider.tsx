@@ -22,7 +22,7 @@ type SettingsContextType = {
 };
 
 const SettingsContext = createContext<SettingsContextType | undefined>(
-  undefined,
+  undefined
 );
 
 export function SettingsProvider({ children }: PropsWithChildren) {
@@ -80,7 +80,7 @@ export function useSettings() {
   return context;
 }
 
-const LOCAL_STORAGE_KEY = "LOFI_NEW_TAB";
+export const LOCAL_STORAGE_KEY = "LOFI_NEW_TAB";
 
 export const ACTIONS = {
   INIT_STATE: () => {
