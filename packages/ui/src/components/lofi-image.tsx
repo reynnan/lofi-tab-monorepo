@@ -1,11 +1,15 @@
 "use client";
 
-import { ACTIONS, useBackground } from "@repo/ui/providers/background-provider";
+import { ACTIONS, useSettings } from "@repo/ui/providers/settings-provider";
 
 const activeClassNames = "border-2 border-primary";
 
 export default function LofiImage({ src }: { src: string }) {
-  const { backgroundUrl, dispatch } = useBackground();
+  const {
+    settings: { backgroundUrl },
+    dispatch,
+  } = useSettings();
+
   const setBackgroundUrl = (url: string) => dispatch(ACTIONS.SET_FAVORITE(url));
 
   return (

@@ -1,21 +1,33 @@
 "use client";
-import { ACTIONS, useBackground } from "@repo/ui/providers/background-provider";
+import {
+  ACTIONS,
+  LOCAL_STORAGE_KEY,
+  useSettings,
+} from "@repo/ui/providers/settings-provider";
 import { Shuffle } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function ShuffleBackgroundButton() {
-  const { backgroundUrl, dispatch } = useBackground();
+  const {
+    settings: { backgroundUrl },
+    dispatch,
+  } = useSettings();
+
   const [isShuffleActive, setIsShuffleActive] = useState(false);
 
   useEffect(() => {
-    const storedUrl = window.localStorage.getItem("LOFI_NEW_TAB");
+    const storedUrl = window.localStorage.getItem(LOCAL_STORAGE_KEY);
     setIsShuffleActive(!storedUrl || storedUrl !== backgroundUrl);
   }, [backgroundUrl]);
 
   return (
     <div
       className="tooltip tooltip-right"
-      data-tip={`Shuffle ${isShuffleActive ? "is active" : "background"}`}
+      data-tip={
+        isShuffleActive
+          ? "Shuffle is on: New random background on each new tab or select one to disable shuffle"
+          : "Shuffle is off: Click to refresh your background automatically on each new tab"
+      }
     >
       <button
         onClick={() => dispatch(ACTIONS.SHUFFLE_BACKGROUND())}

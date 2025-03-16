@@ -1,30 +1,32 @@
 import BackgroundSelectDropdown from "@repo/ui/components/background-select-dropdown";
-import Clock from "@repo/ui/components/clock";
 import GifSourceLink from "@repo/ui/components/gif-source-link";
+import { LofiPlayMusicButton } from "@repo/ui/components/lofi-play-music";
+import Main from "@repo/ui/components/main";
 import ShuffleBackgroundButton from "@repo/ui/components/shuffle-background-button";
+import TodosDropdown from "@repo/ui/components/todos-dropdown";
 import Weather from "@repo/ui/components/weather";
-import { BackgroundProvider } from "@repo/ui/providers/background-provider";
+import { SettingsProvider } from "@repo/ui/providers/settings-provider";
 
 function App() {
   return (
-    <BackgroundProvider>
-      <div className="flex flex-col w-full h-full overflow-hidden p-1">
+    <SettingsProvider>
+      <div className="flex flex-col w-full h-full overflow-hidden p-3">
         <header className="flex items-center p-1">
           <BackgroundSelectDropdown />
           <ShuffleBackgroundButton />
+          <LofiPlayMusicButton />
           <Weather
             classNames="ml-auto"
             fetchUrl={`${import.meta.env.VITE_API_ROUTE}/weather`}
           />
         </header>
-        <main className="flex-1 flex flex-col justify-center items-center">
-          <Clock />
-        </main>
-        <footer className="flex p-1">
+        <Main />
+        <footer className="flex items-end p-1">
           <GifSourceLink />
+          <TodosDropdown className="ml-auto" />
         </footer>
       </div>
-    </BackgroundProvider>
+    </SettingsProvider>
   );
 }
 
