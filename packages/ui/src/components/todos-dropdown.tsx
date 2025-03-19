@@ -72,7 +72,7 @@ const INIT_TODOS = {
   categories: [],
 };
 
-const TodosList = () => {
+export const TodosList = () => {
   const [todos, setTodos] = useState<TodosList>(INIT_TODOS);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");

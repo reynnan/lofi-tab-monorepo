@@ -4,7 +4,11 @@ import { useEffect, useLayoutEffect, useState } from "react";
 
 type Props = {
   fetchUrl?: string;
-  classNames?: string;
+  stylesProps?: {
+    sectionClassNames?: string;
+    tempClassNames?: string;
+    locationClassNames?: string;
+  };
 };
 
 type State = {
@@ -15,8 +19,8 @@ type State = {
 };
 
 export default function Weather({
-  classNames = "",
   fetchUrl = "/api/weather",
+  stylesProps,
 }: Props) {
   const [isLoading, setIsLoading] = useState(true);
   const [state, setState] = useState<State>(() => getInitialState());
@@ -59,7 +63,7 @@ export default function Weather({
   if (isLoading) {
     return (
       <div
-        className={`flex flex-col items-center justify-center ${classNames}`}
+        className={`flex flex-col items-center justify-center ${stylesProps?.sectionClassNames}`}
       >
         <span className="loading loading-spinner loading-lg"></span>
       </div>
@@ -68,14 +72,16 @@ export default function Weather({
 
   return (
     <section
-      className={`tooltip tooltip-left cursor-pointer ${classNames} flex flex-col items-center`}
+      className={`tooltip tooltip-left ${stylesProps?.sectionClassNames}  cursor-pointer flex flex-col items-center`}
       data-tip="Click to change between Celsius and Fahrenheit"
       onClick={handleToggleTemperature}
     >
-      <h2 className="text-4xl font-bold select-none">
+      <h2
+        className={`text-4xl ${stylesProps?.tempClassNames} font-bold select-none`}
+      >
         {Math.round(state.temp)}º {state.currentType}
       </h2>
-      <h3 className="text-sm font-bold">
+      <h3 className={`text-sm ${stylesProps?.locationClassNames} font-bold`}>
         {state.city}, {state.country}
       </h3>
     </section>

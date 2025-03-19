@@ -22,7 +22,7 @@ type SettingsContextType = {
 };
 
 const SettingsContext = createContext<SettingsContextType | undefined>(
-  undefined
+  undefined,
 );
 
 export function SettingsProvider({ children }: PropsWithChildren) {
@@ -31,27 +31,20 @@ export function SettingsProvider({ children }: PropsWithChildren) {
     backgroundUrl: "",
     isPlayingLofi: false,
   });
-  const [renderWithAnimation, setRenderWithAnimation] = useState(false);
 
   useLayoutEffect(() => {
     dispatch(ACTIONS.INIT_STATE());
   }, []);
 
   useEffect(() => {
-    if (backgroundRef.current === null) return;
+    if (backgroundRef.current === null) {
+      return;
+    }
     const backgroundDiv = backgroundRef.current;
     backgroundDiv.style.backgroundImage = `url(${settings.backgroundUrl})`;
     backgroundDiv.style.backgroundRepeat = "no-repeat";
     backgroundDiv.style.backgroundSize = "cover";
   }, [settings.backgroundUrl]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setRenderWithAnimation(true);
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const value = {
     settings,
@@ -60,14 +53,7 @@ export function SettingsProvider({ children }: PropsWithChildren) {
 
   return (
     <SettingsContext.Provider value={value}>
-      <div
-        ref={backgroundRef}
-        className={`w-full h-full transition-opacity duration-300 transform ${
-          renderWithAnimation ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        {children}
-      </div>
+      {children}
     </SettingsContext.Provider>
   );
 }

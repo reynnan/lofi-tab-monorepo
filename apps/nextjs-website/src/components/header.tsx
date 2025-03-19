@@ -9,7 +9,7 @@ export default function Header() {
       <BackgroundSelectDropdown />
       <ShuffleBackgroundButton />
       <LofiPlayMusicButton />
-      <Weather classNames="ml-auto" />
+      <Weather stylesProps={{ sectionClassNames: "ml-auto" }} />
     </header>
   );
 }
