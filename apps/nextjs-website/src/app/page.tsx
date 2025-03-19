@@ -10,6 +10,11 @@ import { SettingsProvider } from "@repo/ui/providers/settings-provider";
 
 export const dynamic = "force-static";
 
+export const metadata = {
+  title: "Try Lofi Tab",
+  description: "Try out the Lofi Tab experience",
+};
+
 export default function LandingPage() {
   return (
     <SettingsProvider>
