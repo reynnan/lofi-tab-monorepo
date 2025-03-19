@@ -34,7 +34,9 @@ const Header = () => {
         <a href="#features">Features</a>
       </li>
       <li>
-        <Link href="/try">Try</Link>
+        <Link href="/try" target="_blank">
+          Try
+        </Link>
       </li>
     </>
   );
@@ -95,7 +97,7 @@ const HeroSection = () => (
         >
           Add to Chrome <PlusIcon className="h-5 w-5" />
         </a>
-        <Link href="/try" className="btn btn-outline">
+        <Link href="/try" target="_blank" className="btn btn-outline">
           Try without installing
         </Link>
       </div>
@@ -149,7 +151,9 @@ const Preview = () => (
   <div className="mockup-browser border-base-300 border w-full">
     <div className="mockup-browser-toolbar">
       <div className="input">
-        <Link href="/try">https://lofitab.com/try </Link>
+        <Link href="/try" target="_blank">
+          https://lofitab.com/try
+        </Link>
       </div>
     </div>
     <div className="border-t border-base-300 h-100">
@@ -370,6 +374,7 @@ const Footer = () => (
               <Link
                 className="hover:text-primary transition-colors"
                 href="/try"
+                target="_blank"
               >
                 Try
               </Link>
