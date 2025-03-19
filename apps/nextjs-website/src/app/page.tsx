@@ -34,7 +34,7 @@ const Header = () => {
         <a href="#features">Features</a>
       </li>
       <li>
-        <a href="#preview">Try</a>
+        <Link href="/try">Try</Link>
       </li>
     </>
   );
@@ -367,12 +367,12 @@ const Footer = () => (
               </a>
             </li>
             <li>
-              <a
+              <Link
                 className="hover:text-primary transition-colors"
-                href="#preview"
+                href="/try"
               >
                 Try
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -393,7 +393,7 @@ const Footer = () => (
 
         <div>
           <h3 className="footer-title text-lg font-bold mb-4">
-            Connect With Us
+            Connect With Me
           </h3>
           <div className="flex space-x-4 mb-4">
             <a
