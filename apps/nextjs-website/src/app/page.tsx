@@ -11,8 +11,9 @@ import { SettingsProvider } from "@repo/ui/providers/settings-provider";
 export const dynamic = "force-static";
 
 export const metadata = {
-  title: "Try Lofi Tab",
-  description: "Try out the Lofi Tab experience",
+  title: "Lofi Tab 🐈‍⬛🎧",
+  description:
+    "Transform your new tab into a productive and calming lofi experience with todos, weather, clock, and beautiful backgrounds.",
 };
 
 export default function LandingPage() {
