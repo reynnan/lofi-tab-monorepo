@@ -8,7 +8,6 @@ import React, {
   useEffect,
   useLayoutEffect,
   useReducer,
-  useState,
 } from "react";
 
 type Settings = {
