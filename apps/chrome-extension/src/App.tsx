@@ -16,7 +16,7 @@ function App() {
           <ShuffleBackgroundButton />
           <LofiPlayMusicButton />
           <Weather
-            classNames="ml-auto"
+            stylesProps={{ sectionClassNames: "ml-auto" }}
             fetchUrl={`${import.meta.env.VITE_API_ROUTE}/weather`}
           />
         </header>
