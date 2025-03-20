@@ -3,31 +3,30 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import { PostHogProvider } from "posthog-js/react";
-import { PostHogConfig } from "posthog-js";
 
-const options: Partial<PostHogConfig> = {
+import "posthog-js/dist/recorder";
+import "posthog-js/dist/exception-autocapture";
+import "posthog-js/dist/tracing-headers";
+import "posthog-js/dist/web-vitals";
+import posthog from "posthog-js/dist/module.no-external";
+
+const options = {
   api_host: import.meta.env.VITE_PUBLIC_POSTHOG_HOST,
-  persistence: "localStorage",
+  persistence: "localStorage" as const,
   autocapture: true,
   disable_session_recording: false,
   capture_pageview: true,
-  loaded: (posthog) => {
-    posthog.register({
-      full_url: window.location.href,
-      domain: window.location.hostname,
-    });
-  },
   disable_external_dependency_loading: true,
 };
 
+if (
+  !window.location.host.includes("127.0.0.1") &&
+  !window.location.host.includes("localhost")
+) {
+  posthog.init("phc_CTdv3JyrauZ4IJ51tNkaghsTcPxqYVX1YT6auGWXgzC", options);
+}
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <PostHogProvider
-      apiKey={import.meta.env.VITE_PUBLIC_POSTHOG_KEY}
-      options={options}
-    >
-      <App />
-    </PostHogProvider>
+    <App />
   </StrictMode>,
 );
