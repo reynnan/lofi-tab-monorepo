@@ -253,24 +253,24 @@ function SizeComparisonComponent() {
   const extensions = [
     {
       name: "Lofi Tab",
-      size: "200kb",
+      size: "800kb",
       color: "bg-green-500",
       textColor: "text-green-500",
-      percentage: 1,
+      percentage: 4,
     },
     {
       name: "Infinity New Tab",
       size: "5MB",
       color: "bg-yellow-500",
       textColor: "text-yellow-500",
-      percentage: 25,
+      percentage: 26,
     },
     {
       name: "Momentum",
       size: "19MB",
       color: "bg-red-500",
       textColor: "text-red-500",
-      percentage: 95,
+      percentage: 100,
     },
   ];
 
@@ -302,7 +302,7 @@ function SizeComparisonComponent() {
               ></div>
               {ext.name === "Lofi Tab" && (
                 <div className="absolute -top-5 right-0 bg-green-500 text-white text-xs px-2 py-1 rounded-md font-bold">
-                  95% smaller!
+                  800kb - 95% smaller!
                 </div>
               )}
             </div>
