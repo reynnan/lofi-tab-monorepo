@@ -1,5 +1,5 @@
 import { Github, Menu, PlusIcon, Twitter, Linkedin } from "lucide-react";
-import { LofiTabUnwrapped } from "@/components/lofi-tab";
+import { LofiTabUnwrapped } from "@repo/ui/components/lofi-tab";
 import Link from "next/link";
 import { TodosList } from "@repo/ui/components/todos-dropdown";
 import ClockComponent from "@repo/ui/components/clock";

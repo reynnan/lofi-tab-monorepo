@@ -2,7 +2,7 @@
 import lscache from "lscache";
 import { useEffect, useLayoutEffect, useState } from "react";
 
-type Props = {
+export type Props = {
   fetchUrl?: string;
   stylesProps?: {
     sectionClassNames?: string;
