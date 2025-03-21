@@ -3,21 +3,28 @@ import {
   SettingsProvider,
   useSettings,
 } from "@repo/ui/providers/settings-provider";
-import Header from "./header";
 import Main from "@repo/ui/components/main";
 import GifSourceLink from "@repo/ui/components/gif-source-link";
 import TodosDropdown from "@repo/ui/components/todos-dropdown";
 import { useEffect, useRef, useState } from "react";
+import BackgroundSelectDropdown from "@repo/ui/components/background-select-dropdown";
+import ShuffleBackgroundButton from "@repo/ui/components/shuffle-background-button";
+import { LofiPlayMusicButton } from "@repo/ui/components/lofi-play-music";
+import Weather, { Props as WeatherProps } from "@repo/ui/components/weather";
 
-export default function LofiTab() {
+type Props = {
+  weatherProps?: WeatherProps;
+};
+
+export default function LofiTab(props: Props) {
   return (
     <SettingsProvider>
-      <LofiTabUnwrapped />
+      <LofiTabUnwrapped {...props} />
     </SettingsProvider>
   );
 }
 
-export const LofiTabUnwrapped = () => {
+export const LofiTabUnwrapped = (props: Props) => {
   const { settings } = useSettings();
   const backgroundRef = useRef<HTMLDivElement | null>(null);
   const [renderWithAnimation, setRenderWithAnimation] = useState(false);
@@ -48,7 +55,15 @@ export const LofiTabUnwrapped = () => {
       }`}
     >
       <div className="flex flex-col w-full h-full p-3 overflow-hidden">
-        <Header />
+        <header className="flex items-center p-1">
+          <BackgroundSelectDropdown />
+          <ShuffleBackgroundButton />
+          <LofiPlayMusicButton />
+          <Weather
+            stylesProps={{ sectionClassNames: "ml-auto" }}
+            {...props.weatherProps}
+          />
+        </header>
         <Main />
         <footer className="flex items-end p-1">
           <GifSourceLink />

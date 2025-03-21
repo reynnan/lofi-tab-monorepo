@@ -1,4 +1,4 @@
-import LofiTab from "@/components/lofi-tab";
+import LofiTab from "@repo/ui/components/lofi-tab";
 
 export default function Try() {
   return <LofiTab />;
