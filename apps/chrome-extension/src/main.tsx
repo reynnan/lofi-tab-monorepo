@@ -23,8 +23,9 @@ if (
   !window.location.host.includes("127.0.0.1") &&
   !window.location.host.includes("localhost")
 ) {
-  posthog.init("phc_CTdv3JyrauZ4IJ51tNkaghsTcPxqYVX1YT6auGWXgzC", options);
+  posthog.init(import.meta.env.VITE_POSTHOG_API_KEY, options);
 }
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <App />
