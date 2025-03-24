@@ -4,9 +4,8 @@ import Link from "next/link";
 import { TodosList } from "@repo/ui/components/todos-dropdown";
 import ClockComponent from "@repo/ui/components/clock";
 import Weather from "@repo/ui/components/weather";
-import { LOFI_GIFS } from "@repo/ui/utils/constants";
-import LofiImage from "@repo/ui/components/lofi-image";
 import { SettingsProvider } from "@repo/ui/providers/settings-provider";
+import { BackgroundSelection } from "@repo/ui/components/background-select-dropdown";
 
 export const dynamic = "force-static";
 
@@ -199,14 +198,8 @@ const FEATURES = [
     description:
       "Choose from over 30 beautiful lofi backgrounds to customize your new tab experience.",
     component: () => (
-      <div className="w-70 h-50 md:w-[500px] md:h-96 shadow-md overflow-y-scroll bg-base-300">
-        <ul className="grid grid-cols-3 gap-2 p-1">
-          {LOFI_GIFS.map((gif) => (
-            <li key={gif} className="relative w-full h-auto cursor-pointer">
-              <LofiImage src={gif} />
-            </li>
-          ))}
-        </ul>
+      <div className="w-70 h-50 md:w-[500px] md:h-96 shadow-md overflow-y-scroll bg-base-300 p-1 flex flex-col gap-2">
+        <BackgroundSelection />
       </div>
     ),
   },

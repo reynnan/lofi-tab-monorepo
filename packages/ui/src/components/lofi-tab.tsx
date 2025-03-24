@@ -50,7 +50,7 @@ export const LofiTabUnwrapped = (props: Props) => {
   return (
     <div
       ref={backgroundRef}
-      className={`w-full h-full transition-opacity duration-300 transform ${
+      className={`w-full h-full transition-opacity duration-500 transform ${
         renderWithAnimation ? "opacity-100" : "opacity-0"
       }`}
     >

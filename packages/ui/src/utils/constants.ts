@@ -1,4 +1,4 @@
-export const LOFI_GIFS = [
+const DYNAMIC = [
   "https://64.media.tumblr.com/b61514ab8808e411d16e78e56e370948/tumblr_nljbs6oe4T1shdhdjo1_540.gifv",
   "https://i.pinimg.com/originals/62/d4/fd/62d4fd63e91a15d0ed51a8ee870c9081.gif",
   "https://i.pinimg.com/originals/94/a0/01/94a001f8ac09e21c574a3632b99dd02b.gif",
@@ -56,4 +56,60 @@ export const LOFI_GIFS = [
   "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjRlNGN1OWY5MTJiOXRnbjRvMzM1OXoycTY5ZXMxazg3M200aDBmciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fpTwAdKL3ZCBa/giphy.gif",
   "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMm5vMDFuZW5hejdneTE0OWJ4NjhndGl2azkzNmVncWtzdHQ2ZWluaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BRN2Xi0MqnjjO/giphy.gif",
   "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2wzOHM5b2YwamRuZW83d2cxM2M3cmQ3YWdzajVjZzBldmNvbHduZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/J4FsxFgZgN2HS/giphy.gif",
-] as readonly string[];
+].map((url) => ({
+  url,
+  type: "dynamic",
+})) as readonly {
+  url: string;
+  type: "dynamic";
+}[];
+
+const STATIC = [
+  /* The Wind Rises */
+  "https://www.ghibli.jp/gallery/kazetachinu024.jpg",
+  "https://www.ghibli.jp/gallery/kazetachinu050.jpg",
+  "https://www.ghibli.jp/gallery/kazetachinu023.jpg",
+  /* Whisper of the Heart */
+  "https://www.ghibli.jp/gallery/mimi048.jpg",
+  "https://www.ghibli.jp/gallery/mimi042.jpg",
+  "https://www.ghibli.jp/gallery/mimi008.jpg",
+  /* Kiki's Delivery Service */
+  "https://www.ghibli.jp/gallery/majo001.jpg",
+  "https://www.ghibli.jp/gallery/majo027.jpg",
+  "https://www.ghibli.jp/gallery/majo011.jpg",
+  /* My Neighbor Totoro */
+  "https://www.ghibli.jp/gallery/totoro024.jpg",
+  "https://www.ghibli.jp/gallery/totoro018.jpg",
+  "https://www.ghibli.jp/gallery/totoro001.jpg",
+  /* Princess Mononoke */
+  "https://www.ghibli.jp/gallery/mononoke035.jpg",
+  "https://www.ghibli.jp/gallery/mononoke024.jpg",
+  "https://www.ghibli.jp/gallery/mononoke010.jpg",
+  /* Spirited Away */
+  "https://www.ghibli.jp/gallery/chihiro005.jpg",
+  "https://www.ghibli.jp/gallery/chihiro043.jpg",
+  "https://www.ghibli.jp/gallery/chihiro046.jpg",
+  /* Howl's Moving Castle */
+  "https://www.ghibli.jp/gallery/howl011.jpg",
+  "https://www.ghibli.jp/gallery/howl049.jpg",
+  "https://www.ghibli.jp/gallery/howl050.jpg",
+  /* Ponyo on the Cliff */
+  "https://www.ghibli.jp/gallery/ponyo017.jpg",
+  "https://www.ghibli.jp/gallery/ponyo028.jpg",
+  "https://www.ghibli.jp/gallery/ponyo024.jpg",
+  /* The Red Turtle */
+  "https://www.ghibli.jp/gallery/redturtle001.jpg",
+  "https://www.ghibli.jp/gallery/redturtle046.jpg",
+  "https://www.ghibli.jp/gallery/redturtle050.jpg",
+].map((url) => ({
+  url,
+  type: "static",
+})) as readonly {
+  url: string;
+  type: "static";
+}[];
+
+export const LOFI_GIFS = [...DYNAMIC, ...STATIC] as readonly {
+  url: string;
+  type: "static" | "dynamic";
+}[];

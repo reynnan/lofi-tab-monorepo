@@ -70,7 +70,8 @@ export const LOCAL_STORAGE_KEY = "LOFI_NEW_TAB";
 export const ACTIONS = {
   INIT_STATE: () => {
     const url =
-      window.localStorage.getItem(LOCAL_STORAGE_KEY) || getRandomBackground();
+      window.localStorage.getItem(LOCAL_STORAGE_KEY) ||
+      getRandomBackground().url;
     return {
       type: "INIT_STATE",
       payload: { url },
@@ -109,7 +110,7 @@ const reducer = (state: Settings, action: Action): Settings => {
     case "SET_FAVORITE":
       return { ...state, backgroundUrl: action.payload.url };
     case "SHUFFLE_BACKGROUND":
-      return { ...state, backgroundUrl: getRandomBackground() };
+      return { ...state, backgroundUrl: getRandomBackground().url };
     case "TOGGLE_LOFI_MUSIC":
       return { ...state, isPlayingLofi: !state.isPlayingLofi };
     default:
