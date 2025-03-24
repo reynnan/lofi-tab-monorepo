@@ -21,7 +21,7 @@ export default function BackgroundSelectDropdown() {
         <GalleryHorizontal className="w-5 h-5" />
       </summary>
       {isOpen && (
-        <div className="dropdown-content mt-1 z-40 w-70 h-50 md:w-[500px] md:h-96 shadow-md overflow-y-scroll bg-base-300 p-1 flex flex-col gap-2">
+        <div className="dropdown-content mt-1 z-40 w-80 h-100 md:w-[500px] md:h-96 shadow-md overflow-y-scroll bg-base-300 p-1 flex flex-col gap-2">
           <BackgroundSelection />
         </div>
       )}
@@ -74,8 +74,8 @@ export function BackgroundSelection() {
       </div>
       <ul className="grid grid-cols-3 gap-2">
         {LOFI_GIFS.filter(({ type }) => bgPref === type).map(({ url }) => (
-          <li key={url} className="w-[155px] h-[100px] cursor-pointer">
-            <LofiImage src={`${url}?q=50&w=155`} />
+          <li key={url} className="md:w-[155px] md:h-[100px] cursor-pointer">
+            <LofiImage src={`${url}`} />
           </li>
         ))}
       </ul>
