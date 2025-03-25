@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 
 export default function Clock() {
-  const [time, setTime] = useState(new Date());
   const [use24HourFormat, setUse24HourFormat] = useState(true);
 
   useEffect(() => {
@@ -16,13 +15,6 @@ export default function Clock() {
     localStorage.setItem("CLOCK_PREF", use24HourFormat ? "24" : "12");
   }, [use24HourFormat]);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setTime(new Date());
-    }, 60_000);
-    return () => clearInterval(intervalId);
-  }, []);
-
   const handleToggleFormat = () => {
     setUse24HourFormat((prev) => !prev);
   };
@@ -33,12 +25,27 @@ export default function Clock() {
       data-tip="Click to alternate between 12-hour and 24-hour format"
       onClick={handleToggleFormat}
     >
-      <h1 className="text-7xl md:text-9xl [text-shadow:_0_1px_0_rgb(0_0_0_/_100%)]">
-        {formatTime(time, use24HourFormat)}
-      </h1>
+      <Time use24HourFormat={use24HourFormat} />
     </div>
   );
 }
+
+const Time = ({ use24HourFormat }: { use24HourFormat: boolean }) => {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setTime(new Date());
+    }, 1_000);
+    return () => clearInterval(intervalId);
+  }, []);
+
+  return (
+    <h1 className="text-7xl md:text-9xl [text-shadow:_0_1px_0_rgb(0_0_0_/_100%)]">
+      {formatTime(time, use24HourFormat)}
+    </h1>
+  );
+};
 
 const formatTime = (time: Date, is24Hour: boolean) => {
   if (is24Hour) {

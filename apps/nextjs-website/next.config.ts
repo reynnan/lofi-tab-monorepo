@@ -80,6 +80,13 @@ const nextConfig: NextConfig = {
         pathname: "/**",
         search: "",
       },
+      {
+        protocol: "https",
+        hostname: "	www.ghibli.jp",
+        port: "",
+        pathname: "/gallery/**",
+        search: "",
+      },
     ],
   },
   experimental: {
