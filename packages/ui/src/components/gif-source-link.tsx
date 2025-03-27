@@ -11,9 +11,9 @@ export default function GifSourceLink() {
       href={backgroundUrl}
       rel="noreferrer"
       target="_blank"
-      className="font-bold"
+      className="font-bold text-xs"
     >
-      Gif source
+      Source
     </a>
   );
 }

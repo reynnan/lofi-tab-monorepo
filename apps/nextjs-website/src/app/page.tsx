@@ -1,4 +1,11 @@
-import { Github, Menu, PlusIcon, Twitter, Linkedin } from "lucide-react";
+import {
+  Github,
+  Menu,
+  Twitter,
+  Linkedin,
+  ChromeIcon,
+  Globe,
+} from "lucide-react";
 import { LofiTabUnwrapped } from "@repo/ui/components/lofi-tab";
 import Link from "next/link";
 import { TodosList } from "@repo/ui/components/todos-dropdown";
@@ -29,8 +36,46 @@ export default function LandingPage() {
   );
 }
 
+const EDGE_STORE_LINK =
+  "https://microsoftedge.microsoft.com/addons/detail/lofi-tab/gbgclbncjalkkdnecbhnjpldcabjdedg";
+
 const CHROME_STORE_LINK =
   "https://chromewebstore.google.com/detail/lofi-tab/oidccjhecgdgchankoghgcfkafoeeedn";
+
+const StoreLink = ({
+  text,
+  link,
+  extraClassName,
+  icon,
+  type = "button",
+}: {
+  text: string;
+  link: string;
+  extraClassName?: string;
+  icon: "chrome" | "edge";
+  type?: "button" | "link";
+}) => {
+  const Icon = {
+    chrome: ChromeIcon,
+    edge: Globe,
+  }[icon];
+
+  const styleType = {
+    button: "btn btn-primary",
+    link: "link link-hover",
+  }[type];
+
+  return (
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${styleType} ${extraClassName}`}
+    >
+      {text} <Icon className="w-5 h-5" />
+    </a>
+  );
+};
 
 const Header = () => {
   const menuItems = (
@@ -43,6 +88,22 @@ const Header = () => {
           Try
         </Link>
       </li>
+      <li className="md:hidden">
+        <StoreLink
+          icon="chrome"
+          text="Add to Chrome"
+          link={CHROME_STORE_LINK}
+          type="link"
+        />
+      </li>
+      <li className="md:hidden">
+        <StoreLink
+          icon="edge"
+          text="Add to Edge"
+          link={EDGE_STORE_LINK}
+          type="link"
+        />
+      </li>
     </>
   );
 
@@ -53,7 +114,7 @@ const Header = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow gap-2"
       >
         {menuItems}
       </ul>
@@ -73,35 +134,26 @@ const Header = () => {
         <a className="btn btn-ghost text-xl p-0">Lofi Tab 🐈‍⬛</a>
         {desktop}
       </div>
-      <a
-        href={CHROME_STORE_LINK}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="btn btn-primary ml-auto"
-      >
-        Add to Chrome <PlusIcon className="w-5 h-5" />
-      </a>
+      <div className="flex gap-4 ml-auto">{/* Content to the right */}</div>
     </div>
   );
 };
 
 const HeroSection = () => (
-  <section className="flex flex-col lg:flex-row container mx-auto items-center p-5 gap-5">
+  <section className="flex flex-col lg:flex-row container mx-auto items-center p-5 gap-10">
     <div className="w-full">
       <h1 className="text-5xl font-bold">Lofi Tab</h1>
       <p className="py-6 text-xl">
         Transform your new tab into a productive and calming lofi experience
         with todos, weather, clock, and beautiful backgrounds.
       </p>
-      <div className="flex flex-col sm:flex-row gap-4">
-        <a
-          href={CHROME_STORE_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-primary"
-        >
-          Add to Chrome <PlusIcon className="h-5 w-5" />
-        </a>
+      <div className="flex flex-col gap-2 md:flex-row lg:gap-4">
+        <StoreLink
+          icon="chrome"
+          text="Add to Chrome"
+          link={CHROME_STORE_LINK}
+        />
+        <StoreLink icon="edge" text="Add to Edge" link={EDGE_STORE_LINK} />
         <Link href="/try" target="_blank" className="btn btn-outline">
           Try without installing
         </Link>
@@ -330,14 +382,14 @@ const CallToAction = () => (
         <h2 className="text-3xl font-bold mb-4">
           Ready to transform your new tab?
         </h2>
-        <a
-          href={CHROME_STORE_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-primary ml-auto"
-        >
-          Add to Chrome <PlusIcon className="w-5 h-5" />
-        </a>
+        <div className="flex flex-col sm:flex-row justify-center gap-2 lg:gap-4">
+          <StoreLink
+            icon="chrome"
+            text="Add to Chrome"
+            link={CHROME_STORE_LINK}
+          />
+          <StoreLink icon="edge" text="Add to Edge" link={EDGE_STORE_LINK} />
+        </div>
       </div>
     </div>
   </section>
