@@ -183,7 +183,7 @@ export const TodosList = () => {
     setTodos((prev) => ({
       ...prev,
       list: prev.list.map((t) =>
-        t.id === id ? { ...t, completed: !t.completed } : t,
+        t.id === id ? { ...t, completed: !t.completed } : t
       ),
     }));
   };
