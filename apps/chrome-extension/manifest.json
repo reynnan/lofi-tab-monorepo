@@ -1,7 +1,7 @@
 {
   "name": "Lofi Tab",
   "description": "New tab to relax/study to",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "manifest_version": 3,
   "permissions": [],
   "chrome_url_overrides": {

@@ -2,9 +2,25 @@
 import { ListChecks, Trash } from "lucide-react";
 import { useState, useEffect, FormEvent, useRef } from "react";
 
+const STORAGE_KEY = "LOFI_TODOS_DROPDOWN";
 export default function TodosDropdown({ className }: { className: string }) {
-  const [isOpen, setIsOpen] = useState(false);
   const dropdownContentRef = useRef<HTMLDetailsElement | null>(null);
+  const [isOpen, setIsOpen] = useState<boolean>();
+
+  useEffect(() => {
+    const initState = () => {
+      const isOpen = localStorage.getItem(STORAGE_KEY) === "true";
+      setIsOpen(isOpen);
+      if (dropdownContentRef.current) {
+        if (isOpen) {
+          dropdownContentRef.current.setAttribute("open", "true");
+        } else {
+          dropdownContentRef.current.removeAttribute("open");
+        }
+      }
+    };
+    initState();
+  }, []);
 
   useEffect(() => {
     const closeDropdownOnEscPress = (e: KeyboardEvent) => {
@@ -16,6 +32,30 @@ export default function TodosDropdown({ className }: { className: string }) {
 
     window.addEventListener("keydown", closeDropdownOnEscPress);
     return () => window.removeEventListener("keydown", closeDropdownOnEscPress);
+  }, []);
+
+  useEffect(() => {
+    if (isOpen !== undefined) {
+      window.localStorage.setItem(STORAGE_KEY, String(isOpen));
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    const syncStateBetweenTabs = (e: StorageEvent) => {
+      if (e.key === STORAGE_KEY) {
+        setIsOpen(e.newValue === "true");
+        if (dropdownContentRef.current) {
+          if (e.newValue === "true") {
+            dropdownContentRef.current.setAttribute("open", "true");
+          } else {
+            dropdownContentRef.current.removeAttribute("open");
+          }
+        }
+      }
+    };
+
+    window.addEventListener("storage", syncStateBetweenTabs);
+    return () => window.removeEventListener("storage", syncStateBetweenTabs);
   }, []);
 
   return (
@@ -103,6 +143,21 @@ export const TodosList = () => {
     return () => clearTimeout(debounce);
   }, [todos, loading]);
 
+  useEffect(() => {
+    const syncStateBetweenTabs = (e: StorageEvent) => {
+      if (e.key === TODOS_STORAGE_KEY) {
+        const todoOnADifferentTab = e.newValue;
+        const newTodosState = todoOnADifferentTab
+          ? JSON.parse(todoOnADifferentTab)
+          : INIT_TODOS;
+        setTodos(newTodosState);
+      }
+    };
+
+    window.addEventListener("storage", syncStateBetweenTabs);
+    return () => window.removeEventListener("storage", syncStateBetweenTabs);
+  }, []);
+
   const addNewTodo = (todo: Todo) => {
     setTodos((prevState) => ({
       ...prevState,
@@ -128,7 +183,7 @@ export const TodosList = () => {
     setTodos((prev) => ({
       ...prev,
       list: prev.list.map((t) =>
-        t.id === id ? { ...t, completed: !t.completed } : t,
+        t.id === id ? { ...t, completed: !t.completed } : t
       ),
     }));
   };
