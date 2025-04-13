@@ -2,7 +2,7 @@
 import { ListChecks, Trash } from "lucide-react";
 import { useState, useEffect, FormEvent, useRef } from "react";
 
-const STORAGE_KEY = "todos-dropdown";
+const STORAGE_KEY = "LOFI_TODOS_DROPDOWN";
 export default function TodosDropdown({ className }: { className: string }) {
   const dropdownContentRef = useRef<HTMLDetailsElement | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>();
