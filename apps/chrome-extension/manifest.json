@@ -17,5 +17,10 @@
     "32": "public/lofitab32.png",
     "48": "public/lofitab48.png",
     "128": "public/lofitab128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "firefoxd@lofitab.com"
+    }
   }
 }
