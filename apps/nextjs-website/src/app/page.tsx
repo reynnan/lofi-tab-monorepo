@@ -5,6 +5,7 @@ import {
   Linkedin,
   ChromeIcon,
   Globe,
+  Earth,
 } from "lucide-react";
 import { LofiTabUnwrapped } from "@repo/ui/components/lofi-tab";
 import Link from "next/link";
@@ -42,6 +43,8 @@ const EDGE_STORE_LINK =
 const CHROME_STORE_LINK =
   "https://chromewebstore.google.com/detail/lofi-tab/oidccjhecgdgchankoghgcfkafoeeedn";
 
+const FIREFOX_STORE_LINK = "https://addons.mozilla.org/firefox/addon/lofi-tab/";
+
 const StoreLink = ({
   text,
   link,
@@ -52,12 +55,13 @@ const StoreLink = ({
   text: string;
   link: string;
   extraClassName?: string;
-  icon: "chrome" | "edge";
+  icon: "chrome" | "edge" | "firefox";
   type?: "button" | "link";
 }) => {
   const Icon = {
     chrome: ChromeIcon,
     edge: Globe,
+    firefox: Earth,
   }[icon];
 
   const styleType = {
@@ -104,6 +108,14 @@ const Header = () => {
           type="link"
         />
       </li>
+      <li className="md:hidden">
+        <StoreLink
+          icon="firefox"
+          text="Add to Firefox"
+          link={FIREFOX_STORE_LINK}
+          type="link"
+        />
+      </li>
     </>
   );
 
@@ -140,7 +152,7 @@ const Header = () => {
 };
 
 const HeroSection = () => (
-  <section className="flex flex-col lg:flex-row container mx-auto items-center p-5 gap-10">
+  <section className="flex flex-col 2xl:flex-row container mx-auto items-center p-5 gap-10">
     <div className="w-full">
       <h1 className="text-5xl font-bold">Lofi Tab</h1>
       <p className="py-6 text-xl">
@@ -154,6 +166,11 @@ const HeroSection = () => (
           link={CHROME_STORE_LINK}
         />
         <StoreLink icon="edge" text="Add to Edge" link={EDGE_STORE_LINK} />
+        <StoreLink
+          icon="firefox"
+          text="Add to Firefox"
+          link={EDGE_STORE_LINK}
+        />
         <Link href="/try" target="_blank" className="btn btn-outline">
           Try without installing
         </Link>
@@ -389,6 +406,11 @@ const CallToAction = () => (
             link={CHROME_STORE_LINK}
           />
           <StoreLink icon="edge" text="Add to Edge" link={EDGE_STORE_LINK} />
+          <StoreLink
+            icon="firefox"
+            text="Add to Firefox"
+            link={FIREFOX_STORE_LINK}
+          />
         </div>
       </div>
     </div>
