@@ -169,7 +169,7 @@ const HeroSection = () => (
         <StoreLink
           icon="firefox"
           text="Add to Firefox"
-          link={CHROME_STORE_LINK}
+          link={FIREFOX_STORE_LINK}
         />
         <Link href="/try" target="_blank" className="btn btn-outline">
           Try without installing
