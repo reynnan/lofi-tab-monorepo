@@ -311,6 +311,18 @@ const DYNAMIC = [
     year: 1988,
     link: "https://www.ghibli.jp/works/totoro/",
   },
+  {
+    title: "Cowboy Bebop",
+    url: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGZuYXczaGVlejY2eG9mc2Fld3pqdzBkdWM5dWI4ejFvZGF2cjQ0byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lgTpcy4dkdUc0/giphy.gif",
+    year: 1998,
+    link: "https://cowboy-bebop.net/",
+  },
+  {
+    title: "Cowboy Bebop",
+    url: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmI1bHg5ZDJvaGlieHNxaHh1MjFwaXRmdGI3cWFzaGF5N2c5czdkcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gQbVzXQQbGO7C/giphy.gif",
+    year: 1998,
+    link: "https://cowboy-bebop.net/",
+  },
 ].map(({ url, ...rest }) => ({
   url,
   type: "dynamic",
