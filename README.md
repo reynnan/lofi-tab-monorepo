@@ -1,24 +1,24 @@
-# Turborepo starter
+# Lofi Tab
 
-This Turborepo starter is maintained by the Turborepo core team.
+A re-work from this original [project](https://github.com/reynnan/lofi-tab) now made with Turborepo, Typescript, React, DaisyUI and NextJS
 
-## Using this example
+![Manage extension](docs/main-screen.png)
 
-Run the following command:
+## Published at:
 
-```sh
-npx create-turbo@latest
-```
+- [Chrome Web Store](https://chromewebstore.google.com/detail/lofi-tab/oidccjhecgdgchankoghgcfkafoeeedn)
+- [Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/lofi-tab/gbgclbncjalkkdnecbhnjpldcabjdedg)
+- [Firefox add-ons](https://addons.mozilla.org/en-US/firefox/addon/lofi-tab/)
 
-## What's inside?
+### Developing
 
-This Turborepo includes the following packages/apps:
+Check [HELPER.md](./HELPER.md)
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `apps/chrome-extension`: Code that will generate the static files for the extension
+- `apps/nextjs-website`: Fullstack website that works as a lading page but also as backend for the extension
+- `@repo/ui`: Shared react component that is used in between chrome-extension and nextjs
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
@@ -37,7 +37,7 @@ This Turborepo has some additional tools already setup for you:
 To build all apps and packages, run the following command:
 
 ```
-cd my-turborepo
+cd lofi-tab-monorepo
 pnpm build
 ```
 
@@ -46,7 +46,7 @@ pnpm build
 To develop all apps and packages, run the following command:
 
 ```
-cd my-turborepo
+cd lofi-tab-monorepo
 pnpm dev
 ```
 
